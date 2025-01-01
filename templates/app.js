@@ -24,7 +24,7 @@ async function processInput() {
 
     try {
         // Send data to backend API (adjust URL as needed)
-        const response = await fetch('http://127.0.0.1:5000/predict', {
+        const response = await fetch('http://127.0.0.1:5000/predict', { // Adjust URL here if deployed
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
@@ -52,6 +52,9 @@ function copyExample(exampleId) {
     const exampleText = document.getElementById(exampleId).textContent.trim();
     navigator.clipboard.writeText(exampleText).then(() => {
         displayCopyMessage(`Message copied to clipboard!`);
+    }).catch(err => {
+        console.error('Error copying text: ', err);
+        displayCopyMessage('❌ Failed to copy message!');
     });
 }
 

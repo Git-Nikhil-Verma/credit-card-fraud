@@ -1,22 +1,34 @@
-import pandas as pd
+import os
 import joblib
-from flask import Flask, request, jsonify
-from flask_cors import CORS 
+import pandas as pd
+from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
 
 # Enable CORS for all routes
 CORS(app)
 
+# Get the absolute path of the current working directory
+current_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Absolute paths for the model and PCA transformer
+model_path = os.path.join(current_directory, 'files', 'credit_card_fraud_model.pkl')
+pca_path = os.path.join(current_directory, 'files', 'pca_transformer.pkl')
+
 # Load the pre-trained model and PCA transformer
 try:
-    model = joblib.load('files\credit_card_fraud_model.pkl')
-    pca = joblib.load('files\pca_transformer.pkl')
+    model = joblib.load(model_path)
+    pca = joblib.load(pca_path)
     print("✅ Model and PCA transformer loaded successfully.")
 except Exception as e:
     print(f"❌ Error loading model or PCA transformer: {e}")
     model = None
     pca = None
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
