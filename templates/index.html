@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>Fraud Detection</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Fraud Detection Section -->
+    <div class="container">
+        <p>Enter the following features to check if the transaction is Legitimate or Fraudulent:</p>
+        <textarea id="inputValues" rows="1" placeholder="Time V1 V2 ... V28 Amount"></textarea><br>
+        <button onclick="processInput()">Check Transaction</button>
+        <pre id="result">Result will be displayed here.</pre>
+    </div>
+
+    <!-- Hidden Example Values Section -->
+    <div class="hidden-examples">
+        <button onclick="copyExample('example1')">Copy Example 1</button>
+        <button onclick="copyExample('example2')">Copy Example 2</button>
+
+        <!-- Hidden example values -->
+        <div class="text">
+            <div id="example1" class="hidden">
+                0 1.191857 0.266151 -0.166746 -0.425598 -1.063741 1.449044 -1.179383 0.663617 0.716837 -0.165946 2.345865 -2.890083 1.109969 -0.121359 -2.261821 0.524980 0.247998 0.771679 0.909412 -0.689281 -3.196989 0.133558 -0.021053 0.101286 -0.339846 0.167170 0.125895 -0.246761 2.69
+            </div>
+            <div id="example2" class="hidden">
+                0.374214 0.145334 -0.278711 0.183108 -0.221472 0.092378 0.009778 -0.041497 0.064618 0.017828 0.072697 -0.159316 -0.002174 0.102443 -0.105696 -0.125649 0.013329 -0.059124 -0.053293 0.018709 -0.018612 -0.080426 0.017779 0.076798 -0.002852 -0.089145 -0.106024 -0.015049 -0.228721 2.10
+            </div>
+        </div>
+    </div>
+
+    <div id="copyMessage" class="message">
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
