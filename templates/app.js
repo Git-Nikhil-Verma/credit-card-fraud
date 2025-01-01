@@ -24,7 +24,7 @@ async function processInput() {
 
     try {
         // Send data to backend API (adjust URL as needed)
-        const response = await fetch('http://127.0.0.1:5000/predict', { // Adjust URL here if deployed
+        const response = await fetch('http://192.168.x.x:5000/predict', { // Adjust URL here if deployed
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
