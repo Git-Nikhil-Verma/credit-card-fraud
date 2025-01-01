@@ -24,7 +24,7 @@ async function processInput() {
 
     try {
         // Send data to backend API (adjust URL as needed)
-        const response = await fetch('https:cred-card-fraud.onrender.com/predict', { // Adjust URL here if deployed
+        const response = await fetch('https://credit-card-fraud-rgjs.onrender.com/predict', { // Adjust URL here if deployed
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
